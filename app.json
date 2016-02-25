@@ -1,0 +1,15 @@
+{
+  "name": "Acade",
+  "description": "A very basic custom url shortner for Dropshare",
+  "repository": "https://github.com/stefanosala/acade",
+  "logo": "https://pbs.twimg.com/profile_images/533233438535319553/5YucGuVT.png",
+  "keywords": ["node", "express", "url", "shortner", "dropshare"],
+  "addons": [
+    "heroku-redis"
+  ],
+  "env": {
+    "PUBLIC_URL": {
+      "description": "Public facing url"
+    }
+  }
+}
