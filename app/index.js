@@ -16,7 +16,7 @@ app.post('/', (req, res, next) => {
       return res.json({
         status: 'success',
         message: `${req.query.url} added to database`,
-        shorturl: `${config.publicUrl}/aik9X`,
+        shorturl: `${config.publicUrl}/${randomId}`,
         statusCode: 200,
       });
     })
