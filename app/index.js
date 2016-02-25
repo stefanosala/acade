@@ -24,13 +24,18 @@ app.post('/', (req, res, next) => {
 });
 
 app.get('/:urlId', (req, res, next) => {
-  return redis.get(`urls:${req.params.urlId}`)
+  const urlId = req.params.urlId;
+
+  if (!urlId) return res.sendStatus(404);
+
+  return redis.get(`urls:${urlId}`)
     .then(url => {
       if (!url) {
         return res.sendStatus(404);
       }
 
-      return res.redirect(301, url);
+      return redis.incr(`urls:${urlId}:clicks`)
+        .then(() => res.redirect(301, url));
     })
     .catch(next);
 });
