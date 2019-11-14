@@ -7,7 +7,7 @@ const config = {
     connectionString: process.env.REDIS_URL,
   },
 };
-config.publicUrl = process.env.PUBLIC_URL ||
-  `http://${config.host}:${config.port}`;
+
+config.publicUrl = process.env.PUBLIC_URL || `http://${config.host}:${config.port}`;
 
 module.exports = config;
